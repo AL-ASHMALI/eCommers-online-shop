@@ -59,6 +59,18 @@ const products = [
     rating: 5,
     numReviews: 10,
   },
+  {
+    _id: '6',
+    name: 'Amazon Echo Dot 4th Generation',
+    image: '/images/alexa.jpg',
+    description: 'Excellent product',
+    brand: 'Amazon',
+    category: 'Electronics',
+    price: 120.99,
+    countInStock: 0,
+    rating: 3.5,
+    numReviews: 10,
+  },
 ];
 
 export default products;
