@@ -23,6 +23,7 @@ const ProductScreen = () => {
               <h3>{product.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
+              1
               <Rating
                 value={product.rating}
                 text={`${product.numReviews} reviews`}
