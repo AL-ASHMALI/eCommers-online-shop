@@ -1,10 +1,13 @@
 // I will be using the ES module syntax for the backend
 // to keep the consistency of using the same syntax throughout the project
 import express from 'express';
+import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 dotenv.config();
 import products from './data/products.js';
 const port = process.env.PORT || 5000;
+
+connectDB(); //connect to database (MongoDB)
 
 const app = express(); // initialize express
 
