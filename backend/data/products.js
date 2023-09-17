@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Airpods Pro 2',
     image: '/images/airpods.jpg',
     description: 'Very good headphone',
@@ -12,7 +11,6 @@ const products = [
     numReviews: 222,
   },
   {
-    _id: '2',
     name: 'Logitech G-series Gaming Mouse',
     image: '/images/mouse.jpg',
     description: 'Very good mouse',
@@ -24,7 +22,6 @@ const products = [
     numReviews: 92,
   },
   {
-    _id: '3',
     name: 'Sony Playstation 5 Pro White Version',
     image: '/images/playstation.jpg',
     description: 'Very good playstation',
@@ -36,7 +33,6 @@ const products = [
     numReviews: 1598,
   },
   {
-    _id: '4',
     name: 'iPhone 14 Pro max 256GB',
     image: '/images/phone.jpg',
     description: 'Very good phone',
@@ -48,7 +44,6 @@ const products = [
     numReviews: 20,
   },
   {
-    _id: '5',
     name: 'Cannon E8S DSLR Camera',
     image: '/images/camera.jpg',
     description: 'Very very good Camera',
@@ -60,7 +55,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Amazon Echo Dot 4th Generation',
     image: '/images/alexa.jpg',
     description: 'Excellent product',
