@@ -18,7 +18,7 @@ const cartSlice = createSlice({
       if (existItem) {
         //update the quantity
         state.cartItems = state.cartItems.map((y) =>
-          XMLDocument._id === existItem._id ? item : y
+          y._id === existItem._id ? item : y
         );
       } else {
         state.cartItems = [...state.cartItems, item];
