@@ -28,6 +28,12 @@ const CartScreen = () => {
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
+  const checkoutHandler = () => {
+    navigate('/login?redirect=/shipping');
+  };
+  const continueShoppingHandler = () => {
+    navigate('/');
+  };
   return (
     <Row>
       <Col md={8}>
@@ -96,8 +102,18 @@ const CartScreen = () => {
                 type='button'
                 className='btn-block'
                 disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
               >
                 Proceed To Checkout
+              </Button>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button
+                type='button'
+                variant='success'
+                onClick={continueShoppingHandler}
+              >
+                Continue Shopping
               </Button>
             </ListGroup.Item>
           </ListGroup>
