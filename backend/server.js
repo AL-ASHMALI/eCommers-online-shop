@@ -13,6 +13,10 @@ connectDB(); //connect to database (MongoDB)
 
 const app = express(); // initialize express
 
+// Body parser middleware/ this is needed to use the req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.send('Welcome, The API is running ');
 });
