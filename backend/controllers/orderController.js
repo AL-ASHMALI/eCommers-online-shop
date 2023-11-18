@@ -17,20 +17,20 @@ const getMyOrders = asyncHandler(async (req, res) => {
 
 // Description   Get orders by id
 // Route         GET /api/orders/:id
-// Access        Private
+// Access        Private/Admin
 const getOrdersById = asyncHandler(async (req, res) => {
   res.send('Get orders by id');
 });
 
 // Description   Update order to paid
-// Route         GET /api/orders/:id/pay
+// Route         PUT /api/orders/:id/pay
 // Access        Private
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   res.send('Update order to paid');
 });
 
 // Description   update order to delivered
-// Route         GET /api/orders/:id/deliver
+// Route         PUT /api/orders/:id/deliver
 // Access        Private/Admin
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   res.send('Update order to delivered');
