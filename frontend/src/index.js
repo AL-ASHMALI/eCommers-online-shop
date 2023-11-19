@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './assets/styles/index.css';
 import {
   createBrowserRouter,
@@ -21,6 +20,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PrivateRoute from './components/PrivateRoute';
 import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +34,7 @@ const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route index={true} path='/shipping' element={<ShippingScreen />} />
         <Route index={true} path='/payment' element={<PaymentScreen />} />
+        <Route index={true} path='/placeorder' element={<PlaceOrderScreen />} />
       </Route>
     </Route>
   )
