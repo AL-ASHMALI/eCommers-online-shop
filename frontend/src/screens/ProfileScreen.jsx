@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { useProfileMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlice';
-import { useGetMyOrdersQuery } from '../slices/orderApiSlice';
+import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { FaTimes } from 'react-icons/fa';
 
 const ProfileScreen = () => {
