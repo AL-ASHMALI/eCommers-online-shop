@@ -6,8 +6,14 @@ import Product from '../models/productModel.js';
 // Access: public
 
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({}); //passing an empty object to get all the products
-  res.json(products);
+  const pageSize = 2;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await Product.countDocuments();
+
+  const products = await Product.find({})
+    .limit(pageSize)
+    .skip(pageSize * (page - 1)); //passing an empty object to get all the products
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 // Description: Fetch a single products
