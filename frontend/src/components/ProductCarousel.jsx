@@ -13,12 +13,17 @@ const ProductCarousel = () => {
       {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid />
-            <Carousel.Caption className='carousel-caption'>
-              <h2 className='text-white text-right'>
-                {product.name} (£{product.price})
-              </h2>
-            </Carousel.Caption>
+            <div className='d-flex align-items-center justify-content-between'>
+              <div style={{ flex: 1 }}>
+                <Image src={product.image} alt={product.name} fluid />
+              </div>
+              <div style={{ flex: 1, marginLeft: '10px' }}>
+                <h1 className='text-white'>
+                  {product.name} <br></br> £{product.price}
+                </h1>
+                <h4 className='text-white'>{product.description}</h4>
+              </div>
+            </div>
           </Link>
         </Carousel.Item>
       ))}
