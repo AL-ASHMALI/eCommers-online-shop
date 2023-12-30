@@ -42,3 +42,39 @@ table th {
 .review button {
   margin-top: 10px;
 }
+.custom-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image-container {
+  overflow: hidden;
+  position: relative;
+  height: 200px; /* Adjust the height as needed */
+}
+
+.card-image {
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: auto;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+.product-title {
+  margin-bottom: 0.5rem;
+}
+
+.product-rating {
+  color: #888;
+  font-size: 14px;
+}
