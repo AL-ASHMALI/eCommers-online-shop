@@ -1,6 +1,6 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTrash, FaEdit } from 'react-icons/fa';
-import { Table, Button, Row, Col } from 'react-bootstrap';
+import { Table, Button, Row, Col, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
@@ -53,8 +53,14 @@ const ProductListScreen = () => {
         <Col>
           <h1>Products</h1>
         </Col>
-        <Col>
-          <Button className='btn-sm m-3' onClick={createProductHandler}>
+        <Col
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <Button className='btn-sm m-3 ' onClick={createProductHandler}>
             <FaEdit /> Create Product
           </Button>
         </Col>
@@ -69,7 +75,14 @@ const ProductListScreen = () => {
         <Message variant='danger'>{error.data.message}</Message>
       ) : (
         <>
-          <Table striped hover responsive className='teble-sm'>
+          <Table
+            striped
+            hover
+            responsive
+            className='table-lg'
+            variant='dark'
+            bordered
+          >
             <thead>
               <tr>
                 <th>ID</th>

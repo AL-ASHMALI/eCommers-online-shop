@@ -36,7 +36,14 @@ function UserListScreen() {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <Table striped hover responsive className='table-sm'>
+        <Table
+          striped
+          hover
+          responsive
+          className='table-lg'
+          variant='dark'
+          bordered
+        >
           <thead>
             <tr>
               <th>ID</th>
@@ -63,7 +70,7 @@ function UserListScreen() {
                 </td>
                 <td>
                   <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                    <Button variant='info' className='btn-sm'>
+                    <Button variant='info' className='btn-sm mx-2'>
                       <FaEdit />
                     </Button>
                   </LinkContainer>
