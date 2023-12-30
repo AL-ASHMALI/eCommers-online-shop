@@ -4,12 +4,13 @@ import { Table, Button } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
-
+import Meta from '../../components/Meta';
 function OrderListScreen() {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
 
   return (
     <>
+      <Meta title='Orders List' />
       <h1>Orders</h1>
       {isLoading ? (
         <Loader />

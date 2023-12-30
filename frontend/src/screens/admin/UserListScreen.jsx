@@ -8,6 +8,7 @@ import {
   useGetUsersQuery,
   useDeleteUserMutation,
 } from '../../slices/usersApiSlice';
+import Meta from '../../components/Meta';
 
 function UserListScreen() {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -28,6 +29,7 @@ function UserListScreen() {
 
   return (
     <>
+      <Meta title='Users List' />
       <h1>Users</h1>
       {isLoading ? (
         <Loader />

@@ -10,6 +10,7 @@ import {
   useUpdateProductMutation,
   useUploadProductImageMutation,
 } from '../../slices/productsApiSlice';
+import Meta from '../../components/Meta';
 
 const ProductEditScreen = () => {
   const { id: productId } = useParams();
@@ -91,6 +92,7 @@ const ProductEditScreen = () => {
       </Link>
 
       <FormContainer>
+        <Meta title='Edit Product' />
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
 

@@ -10,6 +10,7 @@ import {
   useGetUserDetailsQuery,
   useUpdateUserMutation,
 } from '../../slices/usersApiSlice';
+import Meta from '../../components/Meta';
 
 const UserEditScreen = () => {
   const { id: userId } = useParams();
@@ -54,6 +55,7 @@ const UserEditScreen = () => {
         Go Back
       </Link>
 
+      <Meta title='Edit User' />
       <FormContainer>
         <h1>Edit User</h1>
 
