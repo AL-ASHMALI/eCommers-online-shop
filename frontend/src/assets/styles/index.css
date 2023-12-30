@@ -57,7 +57,7 @@ table th {
 .card-image-container {
   overflow: hidden;
   position: relative;
-  height: 200px; /* Adjust the height as needed */
+  height: 60%;
 }
 
 .card-image {
@@ -73,8 +73,39 @@ table th {
 .product-title {
   margin-bottom: 0.5rem;
 }
+.custom-carousel {
+  background-color: black; /* Change the background color as desired */
+}
 
-.product-rating {
-  color: #888;
-  font-size: 14px;
+.carousel-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  height: 100%;
+}
+
+.carousel-item-image {
+  flex: 1;
+  max-width: 40%;
+}
+
+.carousel-item-image img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-item-details {
+  flex: 1;
+  color: white;
+  padding-left: 20px;
+}
+
+.carousel-item-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.carousel-item-details h5 {
+  font-size: 16px;
 }

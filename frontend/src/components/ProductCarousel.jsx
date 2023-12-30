@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Carousel, Image } from 'react-bootstrap';
 import Message from './Message';
 import { useGetTopProductsQuery } from '../slices/productsApiSlice';
+import '../assets/styles/index.css';
 
 const ProductCarousel = () => {
   const { data: products, isLoading, error } = useGetTopProductsQuery();
@@ -9,20 +10,20 @@ const ProductCarousel = () => {
   return isLoading ? null : error ? (
     <Message variant='danger'>{error?.data?.message || error.error}</Message>
   ) : (
-    <Carousel pause='hover' className='bg-black mb-4'>
+    <Carousel pause='hover' className='custom-carousel'>
       {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link
             to={`/product/${product._id}`}
             style={{ textDecoration: 'none' }}
           >
-            <div className='d-flex align-items-center justify-content-between'>
-              <div style={{ flex: 1 }}>
+            <div className='carousel-item-container'>
+              <div className='carousel-item-image'>
                 <Image src={product.image} alt={product.name} fluid />
               </div>
-              <div style={{ flex: 1, marginLeft: '10px' }}>
+              <div className='carousel-item-details'>
                 <h1 className='text-white'>
-                  {product.name} <br></br> £{product.price}
+                  {product.name} <br /> £{product.price}
                 </h1>
                 <h5 className='text-white'>{product.description}</h5>
               </div>

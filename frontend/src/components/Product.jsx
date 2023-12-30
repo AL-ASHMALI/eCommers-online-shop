@@ -18,10 +18,11 @@ const Products = ({ product }) => {
           </Card.Title>
         </Link>
         <Card.Text as='h3'>£{product.price}</Card.Text>
-        <Card.Text>
-          <span className='product-rating'>
-            {product.rating} ({product.numReviews} reviews)
-          </span>
+        <Card.Text as='div'>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
         </Card.Text>
       </Card.Body>
     </Card>
