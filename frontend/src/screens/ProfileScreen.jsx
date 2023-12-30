@@ -116,7 +116,14 @@ const ProfileScreen = () => {
             {error?.data?.message || ErrorEvent.error}{' '}
           </Message>
         ) : (
-          <Table striped hover responsive className='table-sm'>
+          <Table
+            striped
+            hover
+            responsive
+            className='table-sm'
+            variant='dark'
+            bordered
+          >
             <thead>
               <tr>
                 <th>ID</th>
@@ -149,7 +156,7 @@ const ProfileScreen = () => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button className='btn-sm' variant='light'>
+                      <Button className='btn-sm' variant='primary'>
                         Details
                       </Button>
                     </LinkContainer>

@@ -21,7 +21,7 @@ const HomeScreen = () => {
       {!keyword ? (
         <ProductCarousel />
       ) : (
-        <Link to='/' className='btn btn-light mb-4'>
+        <Link to='/' className='btn btn-success mb-4'>
           {' '}
           Go Back
         </Link>
