@@ -125,8 +125,14 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // Access:      Private/admin
 
 const getUsers = asyncHandler(async (req, res) => {
-  const users = await User.find({});
-  res.status(200).json(users);
+  const pageSize = process.env.PAGINATION_LIMIT;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await User.countDocuments();
+
+  const users = await User.find({})
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  res.status(200).json({ users, page, pages: Math.ceil(count / pageSize) });
 });
 
 // Description: Get user by ID

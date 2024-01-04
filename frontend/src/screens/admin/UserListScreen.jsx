@@ -1,5 +1,6 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTimes, FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 import { Table, Button } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
@@ -9,9 +10,11 @@ import {
   useDeleteUserMutation,
 } from '../../slices/usersApiSlice';
 import Meta from '../../components/Meta';
+import Paginate from '../../components/Paginate';
 
 function UserListScreen() {
-  const { data: users, refetch, isLoading, error } = useGetUsersQuery();
+  const { pageNumber } = useParams();
+  const { data, refetch, isLoading, error } = useGetUsersQuery({ pageNumber });
 
   const [deleteUser] = useDeleteUserMutation();
 
@@ -56,7 +59,7 @@ function UserListScreen() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {data.users.map((user) => (
               <tr key={user._id}>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
@@ -89,6 +92,7 @@ function UserListScreen() {
           </tbody>
         </Table>
       )}
+      <Paginate pages={data.pages} page={data.page} isAdmin={true} />
     </>
   );
 }
