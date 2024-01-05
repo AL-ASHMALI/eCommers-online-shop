@@ -1,12 +1,15 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTimes } from 'react-icons/fa';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Col } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
 import Meta from '../../components/Meta';
+import { useParams } from 'react-router-dom';
+import Paginate from '../../components/Paginate';
 function OrderListScreen() {
-  const { data: orders, isLoading, error } = useGetOrdersQuery();
+  const { pageNumber } = useParams();
+  const { data, isLoading, error } = useGetOrdersQuery({ pageNumber });
 
   return (
     <>
@@ -39,7 +42,7 @@ function OrderListScreen() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {data.orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user && order.user.name}</td>
@@ -71,6 +74,17 @@ function OrderListScreen() {
           </tbody>
         </Table>
       )}
+      <Col
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        {data && data.orders && data.pages && (
+          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+        )}
+      </Col>
     </>
   );
 }

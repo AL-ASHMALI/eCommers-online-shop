@@ -121,7 +121,15 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          <Col
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          </Col>
         </>
       )}
     </>

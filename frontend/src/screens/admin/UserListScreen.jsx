@@ -1,7 +1,7 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTimes, FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Col } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { toast } from 'react-toastify';
@@ -92,7 +92,17 @@ function UserListScreen() {
           </tbody>
         </Table>
       )}
-      <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+      <Col
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        {data && data.users && data.pages && (
+          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+        )}
+      </Col>
     </>
   );
 }
