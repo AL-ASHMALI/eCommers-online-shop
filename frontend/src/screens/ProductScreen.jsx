@@ -175,7 +175,7 @@ const ProductScreen = () => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h2>Review Product</h2>
 
                   {loadingProductReview && <Loader />}
 
