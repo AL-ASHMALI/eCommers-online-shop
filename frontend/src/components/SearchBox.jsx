@@ -17,6 +17,8 @@ const SearchBox = ({ isAdmin = false }) => {
       setKeyword('');
       if (isAdmin && currentPath.includes('/admin/productlist')) {
         linkPath = `/admin/productlist/search/${keyword}`;
+      } else if (isAdmin && currentPath.includes('/admin/userlist')) {
+        linkPath = `/admin/userlist/search/${keyword}`;
       } else if (!isAdmin) {
         linkPath = `/search/${keyword}`;
       }

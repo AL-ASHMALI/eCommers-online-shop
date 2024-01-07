@@ -127,9 +127,17 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 const getUsers = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
-  const count = await User.countDocuments();
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: 'i',
+        },
+      }
+    : {};
+  const count = await User.countDocuments({ ...keyword });
 
-  const users = await User.find({})
+  const users = await User.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   res.status(200).json({ users, page, pages: Math.ceil(count / pageSize) });

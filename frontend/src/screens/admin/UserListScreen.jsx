@@ -1,7 +1,7 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTimes, FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
-import { Table, Button, Col } from 'react-bootstrap';
+import { useParams, Link } from 'react-router-dom';
+import { Table, Button, Col, Row } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { toast } from 'react-toastify';
@@ -11,10 +11,14 @@ import {
 } from '../../slices/usersApiSlice';
 import Meta from '../../components/Meta';
 import Paginate from '../../components/Paginate';
+import SearchBox from '../../components/SearchBox';
 
 function UserListScreen() {
-  const { pageNumber } = useParams();
-  const { data, refetch, isLoading, error } = useGetUsersQuery({ pageNumber });
+  const { pageNumber, keyword } = useParams();
+  const { data, refetch, isLoading, error } = useGetUsersQuery({
+    keyword,
+    pageNumber,
+  });
 
   const [deleteUser] = useDeleteUserMutation();
 
@@ -33,6 +37,20 @@ function UserListScreen() {
   return (
     <>
       <Meta title='Users List' />
+      <Row>
+        {keyword && (
+          <Col>
+            <Link to='/admin/userlist' className='btn btn-success mb-4'>
+              {' '}
+              Go Back
+            </Link>
+          </Col>
+        )}
+        <Col>
+          <SearchBox isAdmin={true} />
+        </Col>
+      </Row>
+
       <h1>Users</h1>
       {isLoading ? (
         <Loader />
