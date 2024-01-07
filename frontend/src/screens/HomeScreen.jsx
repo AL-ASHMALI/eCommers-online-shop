@@ -7,6 +7,7 @@ import { useParams, Link } from 'react-router-dom';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
+import SearchBox from '../components/SearchBox';
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -18,6 +19,13 @@ const HomeScreen = () => {
 
   return (
     <>
+      <Col
+        style={{
+          marginBottom: '2%',
+        }}
+      >
+        <SearchBox />
+      </Col>
       {!keyword ? (
         <ProductCarousel />
       ) : (

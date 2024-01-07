@@ -1,7 +1,7 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Table, Button, Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import {
@@ -12,10 +12,12 @@ import {
 import { toast } from 'react-toastify';
 import Paginate from '../../components/Paginate';
 import Meta from '../../components/Meta';
+import SearchBox from '../../components/SearchBox';
 
 const ProductListScreen = () => {
-  const { pageNumber } = useParams();
+  const { pageNumber, keyword } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
+    keyword,
     pageNumber,
   });
 
@@ -51,6 +53,20 @@ const ProductListScreen = () => {
   return (
     <>
       <Meta title='Products List' />
+      <Row>
+        {keyword && (
+          <Col>
+            <Link to='/admin/productlist' className='btn btn-success mb-4'>
+              {' '}
+              Go Back
+            </Link>
+          </Col>
+        )}
+        <Col>
+          <SearchBox isAdmin={true} />
+        </Col>
+      </Row>
+
       <Row className='align-items-center'>
         <Col>
           <h1>Products</h1>

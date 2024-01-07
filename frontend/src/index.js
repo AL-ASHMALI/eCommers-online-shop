@@ -64,6 +64,10 @@ const router = createBrowserRouter(
 
         <Route path='/admin/productlist' element={<ProductListScreen />} />
         <Route
+          path='/admin/productlist/search/:keyword'
+          element={<ProductListScreen />}
+        />
+        <Route
           path='/admin/productlist/:pageNumber'
           element={<ProductListScreen />}
         />

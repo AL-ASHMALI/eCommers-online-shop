@@ -7,10 +7,10 @@ import { logout } from '../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import SearchBox from './SearchBox';
+// import SearchBox from './SearchBox';
 import { resetCart } from '../slices/cartSlice';
 
-const Header = () => {
+const Header = ({ isAdmin }) => {
   const { cartItems } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -43,7 +43,7 @@ const Header = () => {
           {/*aria-controls is used to indicate that an element control another one*/}
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
-              <SearchBox />
+              {/* <SearchBox />  */}
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <FaShoppingCart />

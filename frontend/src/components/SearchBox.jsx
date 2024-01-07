@@ -2,17 +2,25 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const SearchBox = () => {
+const SearchBox = ({ isAdmin = false }) => {
   const navigate = useNavigate();
   const { keyword: urlKeyword } = useParams();
 
   const [keyword, setKeyword] = useState(urlKeyword || '');
 
+  const currentPath = window.location.pathname;
+  let linkPath = '';
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
       setKeyword('');
-      navigate(`/search/${keyword}`);
+      if (isAdmin && currentPath.includes('/admin/productlist')) {
+        linkPath = `/admin/productlist/search/${keyword}`;
+      } else if (!isAdmin) {
+        linkPath = `/search/${keyword}`;
+      }
+      navigate(linkPath);
     } else {
       navigate('/');
     }
