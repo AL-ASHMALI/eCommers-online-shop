@@ -8,8 +8,8 @@ import Meta from '../../components/Meta';
 import { useParams } from 'react-router-dom';
 import Paginate from '../../components/Paginate';
 function OrderListScreen() {
-  const { pageNumber } = useParams();
-  const { data, isLoading, error } = useGetOrdersQuery({ pageNumber });
+  const { pageNumber, keyword } = useParams();
+  const { data, isLoading, error } = useGetOrdersQuery({ keyword, pageNumber });
 
   return (
     <>

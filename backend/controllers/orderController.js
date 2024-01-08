@@ -134,9 +134,17 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
 const getOrders = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
-  const count = await Order.countDocuments();
+  const keyword = req.query.keyword;
+  let searchCriteria = {};
+  if (keyword) {
+    // If keyword is provided, attempt to match by the user's ID (assuming keyword is a valid user ID)
+    searchCriteria = {
+      _id: keyword, // Search directly by the user's ID
+    };
+  }
+  const count = await Order.countDocuments({ ...searchCriteria });
 
-  const orders = await Order.find({})
+  const orders = await Order.find({ ...searchCriteria })
     .limit(pageSize)
     .skip(pageSize * (page - 1))
     .populate('user', 'id name');
