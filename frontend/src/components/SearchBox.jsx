@@ -16,6 +16,8 @@ const SearchBox = ({ isAdmin = false }) => {
         setPlaceholder('Search Products...');
       } else if (location.pathname.includes('/admin/userlist')) {
         setPlaceholder('Search Users...');
+      } else if (location.pathname.includes('/admin/orderlist')) {
+        setPlaceholder('Search by order ID...');
       }
     } else {
       setPlaceholder('Search...');
@@ -31,6 +33,8 @@ const SearchBox = ({ isAdmin = false }) => {
         linkPath = `/admin/productlist/search/${keyword}`;
       } else if (isAdmin && location.pathname.includes('/admin/userlist')) {
         linkPath = `/admin/userlist/search/${keyword}`;
+      } else if (isAdmin && location.pathname.includes('/admin/orderlist')) {
+        linkPath = `/admin/orderlist/search/${keyword}`;
       } else if (!isAdmin) {
         linkPath = `/search/${keyword}`;
       }

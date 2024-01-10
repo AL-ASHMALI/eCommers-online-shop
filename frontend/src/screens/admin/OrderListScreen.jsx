@@ -1,12 +1,13 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { FaTimes } from 'react-icons/fa';
-import { Table, Button, Col } from 'react-bootstrap';
+import { Table, Button, Col, Row } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
 import Meta from '../../components/Meta';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Paginate from '../../components/Paginate';
+import SearchBox from '../../components/SearchBox';
 function OrderListScreen() {
   const { pageNumber, keyword } = useParams();
   const { data, isLoading, error } = useGetOrdersQuery({ keyword, pageNumber });
@@ -14,6 +15,19 @@ function OrderListScreen() {
   return (
     <>
       <Meta title='Orders List' />
+      <Row>
+        {keyword && (
+          <Col>
+            <Link to='/admin/orderlist' className='btn btn-success mb-4'>
+              {' '}
+              Go Back
+            </Link>
+          </Col>
+        )}
+        <Col>
+          <SearchBox isAdmin={true} />
+        </Col>
+      </Row>
       <h1>Orders</h1>
       {isLoading ? (
         <Loader />
